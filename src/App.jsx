@@ -11,6 +11,7 @@ import { buildSeedChain } from './chain'
 import Register from './Register'
 import Gate from './Gate'
 import { getAccount, needsGate } from './auth'
+import ErrorBoundary from './ErrorBoundary'
 
 const SESSION_MS = 30 * 60 * 1000
 const STORE = 'titanium-v1'
