@@ -62,7 +62,10 @@ function Radar() {
   )
 }
 
-export default function Security({ policies, setPolicies, list, sessionEnd, setSessionEnd, onReset, onSignOut }) {  const [fp, setFp] = useState('…')
+export default function Security({ policies, setPolicies, list, sessionEnd, setSessionEnd, onReset, onSignOut }) {
+  const [demo, setDemo] = useState(false)
+  const [fp, setFp] = useState('…')
+
   useEffect(() => {
     sha256(navigator.userAgent + screen.width + 'x' + screen.height).then((h) => setFp(h.slice(0, 12)))
   }, [])
@@ -160,8 +163,8 @@ export default function Security({ policies, setPolicies, list, sessionEnd, setS
         </div>
         {demo && (
           <>
-           <Demo setSessionEnd={setSessionEnd} />
-           <button onClick={onReset} className="mt-4 w-full rounded-xl border border-rose-400 py-3 text-sm text-rose-300">Reset demo data</button>
+            <Demo setSessionEnd={setSessionEnd} />
+            <button onClick={onReset} className="mt-4 w-full rounded-xl border border-rose-400 py-3 text-sm text-rose-300">Reset demo data</button>
           </>
         )}
       </section>
