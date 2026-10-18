@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: #0b1426;
+  color: #f5efe3;
+  font-family: 'DM Sans', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+.safe-top { padding-top: max(env(safe-area-inset-top), 16px); }
+.safe-bottom { padding-bottom: max(env(safe-area-inset-bottom), 8px); }
+.tm-orbit { transform-origin: 30px 30px; animation: tm-spin 9s linear infinite; }
+.tm-node { animation: tm-pulse 2s ease-in-out infinite; }
+.tm-scan { animation: tm-scan 2.8s ease-in-out infinite; }
+
+@keyframes tm-spin { to { transform: rotate(360deg); } }
+@keyframes tm-pulse { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
+@keyframes tm-scan {
+  0% { transform: translateY(-19px); opacity: 0; }
+  15% { opacity: 1; }
+  85% { opacity: 1; }
+  100% { transform: translateY(19px); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tm-orbit, .tm-node, .tm-scan { animation: none; }
+}
+.font-display { font-weight: 400; letter-spacing: 0; }
+
+.sweep { animation: sweep 2.4s ease-in-out infinite; }
+@keyframes sweep { 0%, 100% { top: 10%; } 50% { top: 88%; } }
+@media (prefers-reduced-motion: reduce) { .sweep { animation: none; } }
